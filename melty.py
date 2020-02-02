@@ -1,4 +1,5 @@
 import discord
+import os
 
 class Bot(discord.Client):
     async def on_ready(self):
@@ -26,4 +27,4 @@ class Bot(discord.Client):
 
 if __name__ == '__main__':
     bot = Bot()
-    bot.run(process.env.token)
+    bot.run(str(os.environ.get('BOT_TOKEN')))
