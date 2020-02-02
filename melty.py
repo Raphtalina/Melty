@@ -10,7 +10,7 @@ class Bot(discord.Client):
             return
 
         if message.content.startswith('.dev'):
-            if 'Kurucu' in [role.name for role in message.content.author.roles]:
+            if 'Kurucu' in [role.name for role in message.author.roles]:
                 member = message.mentions[0]
                 await member.add_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
             else:
@@ -18,7 +18,7 @@ class Bot(discord.Client):
             await message.delete()
 
         if message.content.startswith('.undev'):
-            if 'Kurucu' in [role.name for role in message.content.author.roles]:
+            if 'Kurucu' in [role.name for role in message.author.roles]:
                 member = message.mentions[0]
                 await member.remove_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
             else:
