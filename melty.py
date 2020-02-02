@@ -15,7 +15,6 @@ class Bot(discord.Client):
                 await member.add_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
             else:
                 await message.channel.send('Üzgünüm, bu komutu kullanmak için yetkin yok :pensive:')
-            await message.delete()
 
         if message.content.startswith('.undev'):
             if 'Kurucu' in [role.name for role in message.author.roles]:
@@ -23,7 +22,6 @@ class Bot(discord.Client):
                 await member.remove_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
             else:
                 await message.channel.send('Üzgünüm, bu komutu kullanmak için yetkin yok :pensive:')
-            await message.delete()
 
 if __name__ == '__main__':
     bot = Bot()
