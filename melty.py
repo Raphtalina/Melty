@@ -1,0 +1,29 @@
+import discord
+
+class Bot(discord.Client):
+    async def on_ready(self):
+        print('{0.user} olarak giriş yapıldı!'.format(self))
+
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+        if message.content.startswith('.dev'):
+            if 'Kurucu' in [role.name for role in message.content.author.roles]:
+                member = message.mentions[0]
+                await member.add_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
+            else:
+                await message.content.send('Üzgünüm, bu komutu kullanmak için yetkin yok :pensive:')
+            await message.delete()
+
+        if message.content.startswith('.undev'):
+            if 'Kurucu' in [role.name for role in message.content.author.roles]:
+                member = message.mentions[0]
+                await member.remove_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
+            else:
+                await message.content.send('Üzgünüm, bu komutu kullanmak için yetkin yok :pensive:')
+            await message.delete()
+
+if __name__ == '__main__':
+    bot = Bot()
+    bot.run(process.env.token)
