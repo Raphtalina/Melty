@@ -13,7 +13,7 @@ class Bot(discord.Client):
             if 'Kurucu' in [role.name for role in message.author.roles]:
                 member = message.mentions[0]
                 await member.add_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
-                await message.channel.send('**{member}** geliştiricilikten çıktı.'.format(member=member.name))
+                await message.channel.send('**{member}** artık geliştirici!'.format(member=member.name))
             else:
                 await message.channel.send('Üzgünüm, bu komutu kullanmak için yetkin yok. :pensive:')
 
@@ -21,7 +21,7 @@ class Bot(discord.Client):
             if 'Kurucu' in [role.name for role in message.author.roles]:
                 member = message.mentions[0]
                 await member.remove_roles(discord.utils.get(message.guild.roles, name='Geliştirici'))
-                await message.channel.send('**{member}** artık geliştirici!'.format(member=member.name))
+                await message.channel.send('**{member}** geliştiricilikten çıktı.'.format(member=member.name))
             else:
                 await message.channel.send('Üzgünüm, bu komutu kullanmak için yetkin yok. :pensive:')
 
