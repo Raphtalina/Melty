@@ -101,4 +101,4 @@ class Fun(commands.Cog):
         await ctx.send(ctx.author.mention, file=discord.File('infoimg2.png', filename='infoimg2.png'))
 
 bot.add_cog(Fun(bot))
-bot.run('NjYyOTc1MDE1MzI2NzExODA4.Xnt8CA.vFGZkbsAcaKWDKHqbReTWqZlLw0')
+bot.run(str(os.environ.get('BOT_TOKEN')))
