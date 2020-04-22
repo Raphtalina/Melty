@@ -2,4 +2,4 @@ discord.py==1.2.5
 requests==2.23.0
 Pillow==7.1.1
 beautifulsoup4==4.9.0
-io==0.0.1
+aiohttp==3.6.2
